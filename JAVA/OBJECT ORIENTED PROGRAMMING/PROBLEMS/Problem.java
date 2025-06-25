@@ -20,3 +20,28 @@ public class Problem{
 	}
 }
 
+class Persons{
+	private List<Problem> probelmList;
+
+
+	public Person(){
+		this.problemList = new ArrayList<>();
+	}
+
+	public void addProblem(Problems problem){
+		problemList.add(problem)
+	}
+
+	public void solveProblem(Problems problem){
+		problem.setResolved(true)
+	}
+	
+	public void tellProblem(){
+		for(Problem problem : problemList){
+			if(!problem.isProblemSolved()){
+				System.out.println("Unsolved Problem: " + problem.getName());
+			}
+		}
+	}
+}
+
