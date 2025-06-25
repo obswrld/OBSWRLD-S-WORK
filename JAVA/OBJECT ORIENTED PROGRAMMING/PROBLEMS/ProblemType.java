@@ -1,4 +1,7 @@
 public enum ProblemType {
     FINANCIAL,
-    SPIRITUAL
+    SPIRITUAL,
+    EDUCATION,
+    TECHNICAL,
+    BUSINESS
 }
