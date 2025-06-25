@@ -1,47 +1,36 @@
+import java.util.List;
+import java.util.ArrayList;
 public class Problem{
 	private String name;
 	private ProblemType type;
 	private boolean status;
 
-	public void Problem(String name, ProblemType type){
+	public Problem(String name, ProblemType type){
 		this.name = name;
 		this.type = type;
+		this.status = false;
 		
 	}
-
+	public boolean getStatus(){
+		return status;
+	}
 	public String getName(){
+
 		return name;
 	}
-	public String getType(){
+	public ProblemType getType(){
+
 		return type;
 	}
 	public boolean isProblemSolved(){
+
 		return status;
 	}
-}
 
-class Persons{
-	private List<Problem> probelmList;
-
-
-	public Person(){
-		this.problemList = new ArrayList<>();
-	}
-
-	public void addProblem(Problems problem){
-		problemList.add(problem)
-	}
-
-	public void solveProblem(Problems problem){
-		problem.setResolved(true)
-	}
-	
-	public void tellProblem(){
-		for(Problem problem : problemList){
-			if(!problem.isProblemSolved()){
-				System.out.println("Unsolved Problem: " + problem.getName());
-			}
-		}
+	public void setStatus(boolean status) {
+		status = false;
 	}
 }
+
+
 
