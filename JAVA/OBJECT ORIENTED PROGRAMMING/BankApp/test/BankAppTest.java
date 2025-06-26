@@ -86,4 +86,15 @@ public class BankAppTest {
         assertEquals(0,obaAccount.getBalance("Correct Pin"));
     }
 
+    @Test
+    public void testThatICannotWithdrawWithIncorrectPin() {
+        Account obaAccount = new Account();
+        assertEquals(0,obaAccount.getBalance("Correct Pin"));
+
+        obaAccount.deposit(10000, "Wrong Pin");
+        assertEquals(0,obaAccount.getBalance("Wrong Pin"));
+
+        obaAccount.withdraw(10000, "Wrong Pin");
+        assertEquals(0,obaAccount.getBalance("Wrong Pin"));
+    }
 }
