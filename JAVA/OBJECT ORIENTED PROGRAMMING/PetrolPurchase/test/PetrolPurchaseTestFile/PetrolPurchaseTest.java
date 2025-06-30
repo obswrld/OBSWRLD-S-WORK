@@ -43,46 +43,69 @@ public class PetrolPurchaseTest {
 
     @Test
     public void testThatPetrolStationCalculatesThePriceOfFuelRequested(){
-        PetrolStation total = new PetrolStation("Total Feeling Station","Fuel", 10, 550.50,4.5);
+        PetrolStation total = new PetrolStation("Total Feeling Station","Fuel", 10, 550.50,0.10);
         assertEquals(0, total.getQuantity());
         total.setFuel(10);
-        assertEquals(10, total.getQuantity());
-
-        total.setPrice(10,550.50);
-        assertEquals(5_505.00, total.getPrice());
+        total.setDiscount(550.50, 0.10);
+        total.setPrice(550.50, 55.05);
+        total.setFinalPrice(495.45, 10);
+        assertEquals(4_954.50, total.getFinalPrice());
 
     }
 
     @Test
     public void testThatPetrolStationDoesNotCalculatesForNegativeFuelAmountRequested(){
-        PetrolStation total = new PetrolStation("Total Feeling Station","Fuel", 10, 0.0,4.5);
+        PetrolStation total = new PetrolStation("Total Feeling Station","Fuel", 0, 550.50,0.10);
         assertEquals(0, total.getQuantity());
         total.setFuel(-10);
-        assertEquals(0, total.getQuantity());
-        total.setPrice(-10,0.0);
-        assertEquals(0.0, total.getPrice());
+        total.setDiscount(550.50, 0.10);
+        total.setPrice(550.50, 55.05);
+        total.setFinalPrice(495.45, -10);
+        assertEquals(0, total.getFinalPrice());
     }
 
     @Test
     public void testThatPetrolStationDoesNotCalculatesForZeroFuelAmountRequested(){
-        PetrolStation total = new PetrolStation("Total Feeling Station","Fuel", 10, 0.0,4.5);
+        PetrolStation total = new PetrolStation("Total Feeling Station","Fuel", 0, 550.50,0.10);
         assertEquals(0, total.getQuantity());
         total.setFuel(0);
-        assertEquals(0, total.getQuantity());
-        total.setPrice(0,0.0);
-        assertEquals(0.0, total.getPrice());
+        total.setDiscount(550.50, 0.10);
+        total.setPrice(550.50, 55.05);
+        total.setFinalPrice(495.45, 0);
+        assertEquals(0, total.getFinalPrice());
+
     }
 
     @Test
     public void testThatPetrolStationCanAddMoreFuelRequestedForUser(){
-        PetrolStation total = new PetrolStation("Total Feeling Station","Fuel", 10, 550.50,4.5);
+        PetrolStation total = new PetrolStation("Total Feeling Station","Fuel", 20, 550.50,0.10);
         assertEquals(0, total.getQuantity());
         total.setFuel(10);
         assertEquals(10, total.getQuantity());
         total.setFuel(10);
         assertEquals(20, total.getQuantity());
-        total.setPrice(20,550.50);
-        assertEquals(11_010.00, total.getPrice());
+        total.setDiscount(550.50, 4.5);
+        total.setPrice(550.50, 55.05);
+        total.setFinalPrice(495.45, 20);
+        assertEquals(9_909, total.getFinalPrice());
+    }
 
+    @Test
+    public void testThatPetrolStationCalculatesTheDiscountOfFuelPricesRequested(){
+        PetrolStation total = new PetrolStation("Total Feeling Station","Fuel", 10, 550.50,0.10);
+        assertEquals(0, total.getQuantity());
+        total.setFuel(10);
+        assertEquals(10, total.getQuantity());
+        total.setDiscount(550.50, 0.10);
+        assertEquals(55.050000000000004, total.getDiscount());
+    }
+
+    @Test
+    public void testThatPetrolStationCanCalculateThePriceOfFuelRequested(){
+        PetrolStation total = new PetrolStation("Total Feeling Station","Fuel", 10, 550.50,0.10);
+        assertEquals(0, total.getQuantity());
+        total.setFuel(10);
+        total.setPrice(550.50, 55.05);
+        assertEquals(495.45, total.getPrice());
     }
 }
