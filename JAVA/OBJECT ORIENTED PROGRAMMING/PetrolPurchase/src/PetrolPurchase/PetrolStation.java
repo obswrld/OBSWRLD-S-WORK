@@ -11,7 +11,7 @@ public class PetrolStation {
         stationName = name;
         petrolType = type;
         this.petrolQuantity = 0;
-        this.price = price;
+        this.price = 550.50;
         this.discount = discount;
     }
 
@@ -21,8 +21,14 @@ public class PetrolStation {
     }
 
     public void setFuel(int amount) {
-        if(amount > 0.0) {
-            this.petrolQuantity += amount;
-        }
+        if(amount > 0) this.petrolQuantity += amount;
+    }
+
+    public void setPrice(int amount, double price) {
+        if(amount > 0) this.price *= amount;
+    }
+
+    public double getPrice() {
+        return price;
     }
 }
