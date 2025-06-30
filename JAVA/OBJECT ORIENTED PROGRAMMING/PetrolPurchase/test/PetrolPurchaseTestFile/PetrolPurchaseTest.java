@@ -16,6 +16,16 @@ public class PetrolPurchaseTest {
     }
 
     @Test
+    public void testThatPetrolStationCanAllowUserToAddMoreQuantity(){
+        PetrolStation total = new PetrolStation("Total Feeling Station","Fuel", 10, 945.02,4.50);
+        assertEquals(0, total.getQuantity());
+        total.setFuel(10);
+        assertEquals(10, total.getQuantity());
+        total.setFuel(10);
+        assertEquals(20, total.getQuantity());
+    }
+
+    @Test
     public void testThatPetrolStationDoesNotTakeNegativeIntegerQuantity(){
         PetrolStation total = new PetrolStation("Total Feeling Station","Fuel", 10, 945.02,4.5);
         assertEquals(0, total.getQuantity());
@@ -40,6 +50,39 @@ public class PetrolPurchaseTest {
 
         total.setPrice(10,550.50);
         assertEquals(5_505.00, total.getPrice());
+
+    }
+
+    @Test
+    public void testThatPetrolStationDoesNotCalculatesForNegativeFuelAmountRequested(){
+        PetrolStation total = new PetrolStation("Total Feeling Station","Fuel", 10, 0.0,4.5);
+        assertEquals(0, total.getQuantity());
+        total.setFuel(-10);
+        assertEquals(0, total.getQuantity());
+        total.setPrice(-10,0.0);
+        assertEquals(0.0, total.getPrice());
+    }
+
+    @Test
+    public void testThatPetrolStationDoesNotCalculatesForZeroFuelAmountRequested(){
+        PetrolStation total = new PetrolStation("Total Feeling Station","Fuel", 10, 0.0,4.5);
+        assertEquals(0, total.getQuantity());
+        total.setFuel(0);
+        assertEquals(0, total.getQuantity());
+        total.setPrice(0,0.0);
+        assertEquals(0.0, total.getPrice());
+    }
+
+    @Test
+    public void testThatPetrolStationCanAddMoreFuelRequestedForUser(){
+        PetrolStation total = new PetrolStation("Total Feeling Station","Fuel", 10, 550.50,4.5);
+        assertEquals(0, total.getQuantity());
+        total.setFuel(10);
+        assertEquals(10, total.getQuantity());
+        total.setFuel(10);
+        assertEquals(20, total.getQuantity());
+        total.setPrice(20,550.50);
+        assertEquals(11_010.00, total.getPrice());
 
     }
 }

@@ -11,7 +11,7 @@ public class PetrolStation {
         stationName = name;
         petrolType = type;
         this.petrolQuantity = 0;
-        this.price = 550.50;
+        this.price = price;
         this.discount = discount;
     }
 
