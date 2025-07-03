@@ -9,11 +9,11 @@ public enum PoliticalZone {
     SOUTHSOUTH("Akwa-Ibon", "Bayelsa", "Cross-River", "Delta", "Edo", "Rivers");
 
     private String[] politicalZone;
-    PoliticalZone(String... politicalZone){
+    PoliticalZone(String... politicalZone) {
         this.politicalZone = politicalZone;
     }
-    public void setPoliticalZone(String[] politicalZone) {
-        this.politicalZone = politicalZone;
+    public void setPoliticalZone(String[] zone) {
+        politicalZone = zone;
     }
     public String[] getPoliticalZone(){
         return politicalZone;
