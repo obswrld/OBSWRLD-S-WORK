@@ -15,8 +15,8 @@ public class Stacck {
         Stack[count++] = list;
     }
 
-    public void pop() {
-        count--;
+    public String pop() {
+        return Stack[--count];
     }
 
     public boolean isFull() {
