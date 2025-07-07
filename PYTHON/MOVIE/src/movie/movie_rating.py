@@ -3,19 +3,19 @@ import datetime
 class Movie:
     def __init__(self, name):
         self.name = name
-        self.rating = []
+        self.ratings = []
         self.added_time = datetime.datetime.now()
 
     def add_rating(self, rating):
         if 1 <= rating <= 5:
-            self.rating.append(rating)
+            self.ratings.append(rating)
             print(f"Rating added for {self.name} : {rating}")
         else:
             print("Ratting between 1 and 5.")
 
     def  average_rating(self):
-        if self.rating:
-            return sum(self.rating) / len(self.rating)
+        if self.ratings:
+            return sum(self.ratings) / len(self.ratings)
         return 0.0
 
 
