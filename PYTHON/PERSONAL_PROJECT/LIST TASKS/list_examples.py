@@ -37,3 +37,10 @@ print(get_square_list(number))
 characters = []
 characters += "Birthday"
 print(characters)
+
+
+#Unpacking List
+list1 = [1, 2, 3, 4, 5, 6, 7]
+first_number, second_number, third_number, fourth_number, fifth_number, sixth_number, seventh_number = list1
+print(first_number, second_number, third_number, fifth_number, sixth_number, seventh_number)
+print(first_number)
