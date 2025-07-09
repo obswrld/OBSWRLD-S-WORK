@@ -11,7 +11,7 @@ public class Clocck {
         this.second = second;
     }
 
-    public boolean displayTime() {
+    public boolean displayTime(int hour, int minute, int second) {
         System.out.println("Hour: " + hour + " Minute: " + minute + " Second: " + second);
         return true;
     }
@@ -38,5 +38,17 @@ public class Clocck {
         } else {
             this.second = second;
         }
+    }
+
+    public int getHour(){
+        return hour;
+    }
+
+    public int getMinute(){
+        return minute;
+    }
+
+    public int getSecond(){
+        return second;
     }
 }
