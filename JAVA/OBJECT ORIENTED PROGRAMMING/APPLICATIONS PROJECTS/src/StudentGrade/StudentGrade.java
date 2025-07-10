@@ -28,8 +28,9 @@ public class StudentGrade {
             studentName[i] = input.next();
 
             for(int j = 0; j < subjects; j++){
-                System.out.print("Enter Subject Name: ");
+                System.out.println("Enter Subject Name: ");
                 subjectName[j] = input.next();
+                System.out.println("Enter Score: ");
                 scores[i][j] = input.nextInt();
                 if(scores[i][j] < 0 && scores[i][j] > 100){
                     System.out.println("Please enter a Valid score:  ");
