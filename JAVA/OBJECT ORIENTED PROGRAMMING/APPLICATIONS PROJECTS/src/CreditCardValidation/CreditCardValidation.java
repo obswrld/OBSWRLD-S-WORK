@@ -3,9 +3,9 @@ package CreditCardValidation;
 public class CreditCardValidation {
     private String cardNumber;
     private String cardType;
-    public CreditCardValidation(String cardNumber, String cardType) {
+    public CreditCardValidation(String cardNumber) {
         this.cardNumber = cardNumber;
-        this.cardType = cardType;
+        this.cardType = determineCardNumber();
     }
     public String getCardNumber() {
         return cardNumber;
@@ -13,7 +13,7 @@ public class CreditCardValidation {
     public String getCardType() {
         return cardType;
     }
-    private String determineCardNumber(String cardNumber){
+    private String determineCardNumber(){
         if(cardNumber.startsWith("4")){
             return "Visa";
         } else if (cardNumber.startsWith("5")) {
@@ -27,7 +27,7 @@ public class CreditCardValidation {
         }
     }
 
-    public int getCreditCardNumber(String cardNumber){
+    public int getCardLength(String cardNumber){
         return cardNumber.length();
     }
 
