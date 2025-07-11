@@ -12,7 +12,7 @@ public class Clocck {
     }
 
     public boolean displayTime(int hour, int minute, int second) {
-        System.out.println("Hour: " + hour + " Minute: " + minute + " Second: " + second);
+        System.out.printf("%02d:%02d:%02d", hour, minute, second);
         return true;
     }
 
