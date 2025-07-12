@@ -9,6 +9,8 @@ class Account:
     def deposit(self, amount ):
         self.balance += amount
 
+
+
 oba = Account(name= "favour", balance=1000000)
 print(oba.balance)
 
