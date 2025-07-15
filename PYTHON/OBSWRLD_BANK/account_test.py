@@ -1,6 +1,6 @@
 import unittest
 
-from OBSWRLD_BANK.account import Account, InsufficientFundsException, InvalidPinException
+from OBSWRLD_BANK.account import Account, InsufficientFundsException, InvalidPinException, InvalidAmountException
 
 
 class TestAccount(unittest.TestCase):
@@ -29,4 +29,17 @@ class TestAccount(unittest.TestCase):
         with self.assertRaises(InvalidPinException):
             self.account.withdraw(100, "2222")
 
-    def
+    def test_deposit_negative_amount(self):
+        with self.assertRaises(InvalidAmountException):
+            self.account.deposit(-1000, "1234")
+
+    def test_withdraw_negative_amount(self):
+        with self.assertRaises(InvalidAmountException):
+            self.account.withdraw(-1000, "1234")
+
+    def test_invalid_pin_balance_check(self):
+        with self.assertRaises(InvalidPinException):
+            self.account.get_balance("2222")
+
+if __name__ == '__main__':
+    unittest.main()
