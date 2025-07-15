@@ -42,11 +42,53 @@ public class Diary {
 
     public Entry createEntry(String title, String body){
         if (!isLocked){
-            Entry entry = new Entry(this.entries.size(), title, body);
+            Entry entry = new Entry(this.entries.size() + 1, title, body);
             this.entries.add(entry);
             return entry;
         }else {
             return null;
+        }
+    }
+
+    public boolean deleteEntry(int id){
+        if (!this.isLocked){
+            for (int i=0; i<this.entries.size(); i++){
+                if (this.entries.get(i).getId() == id){
+                    this.entries.remove(i);
+                    return true;
+                }
+            }
+            return false;
+        }else{
+            return false;
+        }
+    }
+
+    public Entry findByUserId(int id){
+        if (!this.isLocked){
+            for (Entry entry : this.entries){
+                if (entry.getId() == id){
+                    return entry;
+                }
+            }
+            return null;
+        } else {
+            return null;
+        }
+    }
+
+    public boolean updateEntry(int id, String newTitle, String newBody){
+        if (!this.isLocked){
+            for (Entry entry : this.entries){
+                if (entry.getId() == id){
+                    entry.setTitle(newTitle);
+                    entry.setBody(newBody);
+                    return true;
+                }
+            }
+            return false;
+        }else{
+            return false;
         }
     }
 

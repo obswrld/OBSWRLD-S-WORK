@@ -15,16 +15,17 @@ public class Diaries {
 
     public Diary findDiaryByUserName(String userName){
         for (Diary diary : this.diaries){
-            if (diaries.getUserName().equals(userName)){
+            if (diary.getUserName().equals(userName)){
                 return diary;
             }
         }
+        return null;
     }
 
     public boolean deleteDiary(String userName, String passWord){
         for (int i = 0; i<this.diaries.size(); i++){
             Diary diary = this.diaries.get(i);
-            if (diary.getUserName().equals.userName && diary.getPassWord().equals(passWord)){
+            if (diary.getUserName() == userName && diary.getPassWord() == (passWord)){
                 this.diaries.remove(i);
                 return true;
             }
