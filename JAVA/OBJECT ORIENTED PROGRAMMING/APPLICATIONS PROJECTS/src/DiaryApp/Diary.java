@@ -91,6 +91,4 @@ public class Diary {
             return false;
         }
     }
-
-
 }
