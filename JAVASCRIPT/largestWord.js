@@ -1,5 +1,2 @@
 function getLargestWord(word){
-    for(){
-        
-    }
 }

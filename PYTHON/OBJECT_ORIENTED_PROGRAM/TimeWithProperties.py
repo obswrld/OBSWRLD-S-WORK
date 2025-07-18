@@ -34,16 +34,21 @@ class TimeWithProperties:
             raise ValueError("value must be between 0 and 23")
         self._hour = value
 
+    def __str__(self):
+        return f"Time({self.hour:02} : {self.minute:02} : {self.second:02})"
+
 
 TimeWithProperties1 = TimeWithProperties()
 TimeWithProperties1.second = 12
-print(TimeWithProperties1.second)
+TimeWithProperties1.minute = 6
+TimeWithProperties1.hour = 3
+print(TimeWithProperties1)
 
 TimeWithProperties2 = TimeWithProperties()
 TimeWithProperties2.minute = 45
-print(TimeWithProperties2.minute)
+print(TimeWithProperties2)
 
 TimeWithProperties3 = TimeWithProperties()
 TimeWithProperties3.hour = 20
-print(TimeWithProperties3.hour)
+print(TimeWithProperties3)
 
