@@ -13,6 +13,7 @@ class TestAccount(unittest.TestCase):
     def test_deposit(self):
         self.account.deposit(100, "1234")
         self.assertEqual(self.account.get_balance("1234"), 100)
+    
 
     def test_withdraw(self):
         self.account.deposit(100, "1234")
