@@ -13,28 +13,22 @@ public class Entry {
         this.title = title;
         this.body = body;
     }
-
     public int getId(){
         return this.Id;
     }
-
     public String setTitle(String title){
         this.title = title;
         return title;
     }
-
     public String getTitle(){
         return this.title;
     }
-
     public void setBody(String body){
         this.body = body;
     }
-
     public String getBody(){
         return this.body;
     }
-
     public String getDateTime(){
         return this.dateCreated.toString();
     }

@@ -1,67 +1,72 @@
 package PhoneBookApp;
-
 import java.util.ArrayList;
+import java.util.List;
 
-public class PhoneBook {
-    private static ArrayList<PhoneBook[]> contacts = new ArrayList<>();
 
-    public static void addContact(PhoneBook name, PhoneBook lastName, PhoneBook phoneNumber){
-        contacts.add(new PhoneBook[]{name, lastName, phoneNumber});
-        System.out.println("Contact " + name + " " + lastName + " " + phoneNumber);
+public class PhoneBook{
+    private List<Contact> contacts;
+
+    public PhoneBook(){
+        this.contacts = new ArrayList<Contact>();
     }
-
-    public static void removeContact(PhoneBook phoneNumber){
-        boolean found = false;
-        for (int i = 0; i < contacts.size(); i++){
-            if (contacts.get(i)[0] == phoneNumber){
-                contacts.remove(i);
-                System.out.println("Contact " + phoneNumber + " " + contacts.get(i)[1] + "removed");
-                found = true;
-
-                break;
-            }
-        }
-        if (!found){
-            System.out.println("Contact " + phoneNumber + " not found");
+    public void addContact(String firstName, String lastName, String phoneNumber){
+        if (isValidPhoneNumber(phoneNumber)) {
+            this.contacts.add(new Contact(firstName, lastName, phoneNumber));
+        } else {
+            System.out.println("Invalid phone number");
         }
     }
-
-    public static void findContactByPhoneNumber(PhoneBook phoneNumber){
-        for(PhoneBook[] contact : contacts){
-            if(contact[2] == phoneNumber){
-                System.out.println("Contact found " + contact[0] + " " + contact[1] + " " + "phoneNumber: " + contact[2]);
-                return;
+    public void removeContact(String firstName, String lastName, String phoneNumber){
+        for(Contact contact : this.contacts){
+            if(contact.getFirstName().equals(firstName) && contact.getLastName().equals(lastName)
+                    && (contact.getPhoneNumber().equals(phoneNumber))){
+                this.contacts.remove(contact);
             }
         }
     }
-
-    public static void findContactByFirstName(PhoneBook name){
-        boolean found = false;
-        for(PhoneBook[] contact : contacts){
-            if(contact[0] == name){
-                System.out.println("Contact found " + contact[1] + " " + contact[2] + " " + "firstName: " + contact[0]);
-                found = true;
-                break;
+    public List<Contact> getContacts(){
+        return this.contacts;
+    }
+    public Contact findContactByFirstName(String firstName){
+        for (Contact contact : this.contacts){
+            if (contact.getFirstName().equals(firstName)){
+                return contact;
             }
         }
-        if(!found){
-            System.out.println("Contact " + name + " not found");
-        }
+        return null;
     }
-
-    public static void findContactByLastName(PhoneBook lastName){
-        boolean found = false;
-        for(PhoneBook[] contact : contacts){
-            if(contact[1] == lastName){
-                System.out.println("Contact found " + contact[0] + " " + contact[2] + " " + "lastName: " + contact[1]);
-                found = true;
-                break;
+    public Contact findContactByLastName(String lastName){
+        for (Contact contact : this.contacts){
+            if (contact.getLastName().equals(lastName)){
+                return contact;
             }
         }
-        if(!found){
-            System.out.println("Contact " + lastName + " not found");
-        }
+        return null;
     }
-
-
+    public Contact findContactByNumber(String number){
+        for (Contact contact : this.contacts){
+            if (contact.getPhoneNumber().equals(number)){
+                return contact;
+            }
+        }
+        return null;
+    }
+    public String editContact(String newFirstName, String newLastName, String number){
+        for (Contact contacts : this.contacts){
+            if (contacts.getPhoneNumber().equals(number)){
+                    contacts.setFirstName(newFirstName);
+                    contacts.setLastName(newLastName);
+            }
+        }
+        return null;
+    }
+    public boolean isValidPhoneNumber(String phoneNumber){
+        return (phoneNumber.startsWith("080") ||
+                phoneNumber.startsWith("081") ||
+                phoneNumber.startsWith("090") ||
+                phoneNumber.startsWith("091") ||
+                phoneNumber.startsWith("070") ||
+                phoneNumber.startsWith("+234") && phoneNumber.length() == 13) &&
+                phoneNumber.length() == 11;
+    }
 }
