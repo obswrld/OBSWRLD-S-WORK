@@ -1,6 +1,6 @@
 import unittest
 
-from Contact import Contact
+from contact import Contact
 
 
 class TestContact(unittest.TestCase):

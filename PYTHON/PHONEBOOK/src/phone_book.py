@@ -1,41 +1,38 @@
-from _ast import List
+# import List
 
-import Contact
+from PHONEBOOK.src.contact import Contact
 
 
 class PhoneBook:
     def __init__(self):
-        self.contacts: List[Contact] = []
+        self.contacts = []
 
-    def add_contact(self, contact: Contact):
-        for contact in self.contacts:
-            if self.is_phone_number_valid(contact.phone_number):
-                self.contacts.append(contact)
-            else:
-                print("Contact is not valid")
+    def add_contact(self, contact):
+        if not self.is_phone_number_valid(contact.phone_number):
+            raise ValueError("Invalid phone number")
+
+        self.contacts.append(contact)
+        return self.contacts
+
 
     def remove_contact(self, contact: Contact):
         for contact in self.contacts:
-            if self.is_phone_number_valid(contact.phone_number):
-                self.contacts.remove(contact)
-            else:
-                print("Contact is not valid")
-
+            self.contacts.remove(contact)
 
     def get_contacts(self):
         return self.contacts
 
-    def find_contact_by_first_name(self,  name):
+    def find_contact_by_first_name(self,  first_name):
         for contact in self.contacts:
-            if name == contact.first_name:
+            if contact.first_name == first_name:
                 return contact
-        return None
+        raise ValueError("Contact not found")
 
     def find_contact_by_last_name(self, second_name):
         for contact in self.contacts:
             if second_name == contact.last_name:
                 return contact
-        return None
+        raise ValueError("Invalid phone number")
 
     def find_contact_by_phone_number(self, number):
         for contact in self.contacts:
@@ -62,3 +59,7 @@ class PhoneBook:
         else:
             return False
 
+phone_book = PhoneBook()
+phone_book.add_contact(Contact("Oba", "Joy", "08011111111"))
+
+print(phone_book.get_contacts()[0].first_name)
