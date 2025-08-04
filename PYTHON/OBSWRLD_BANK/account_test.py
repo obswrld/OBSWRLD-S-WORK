@@ -1,6 +1,7 @@
 import unittest
 
-from OBSWRLD_BANK.account import Account, InsufficientFundsException, InvalidPinException, InvalidAmountException
+from OBSWRLD_BANK.account import (Account, InsufficientFundsException,
+                                  InvalidPinException, InvalidAmountException)
 
 
 class TestAccount(unittest.TestCase):
