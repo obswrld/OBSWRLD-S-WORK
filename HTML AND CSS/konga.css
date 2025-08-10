@@ -31,31 +31,49 @@ header-top {
 }
 .header-logo .header-bottom-left img{
     width: 50%;
+    align-items: center;
+    display: flex;
 }
-.header-logo p{
+.header-logo .words {
     font-size: 14px;
     font-family: Arial, Helvetica, sans-serif;
     color: #f8f9fa;
     align-items: center;
+    display: flex;
 }
-.header_logo .search {
+.words {
+    align-items: center;
+    justify-content: space-between;
+    font-size: 14px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #f8f9fa;
+    align-items: center;
+    gap: 20px;
+}
+.header-top .header_logo .search {
     display: flex;
     align-items: center;
-    justify-content: center;
 }
-.header-logo .search input {
+.header-top .header-logo .search input {
     width: 500px;
     height: 35px;
-    border-top-left-radius: 5px;
-    border-bottom-left-radius: 5px;
     border: none;
-    padding: 20px;
-    font-size: 15px;
+    border-top-left-radius: 3px;
+    border-bottom-left-radius: 3px;
+    padding-left: 20px;
+    font-size: 14px;
 }
-.header_logo .search button{
-    height: 33px;
-    border-top-right-radius: 5px;
+.header-top .header-logo .search input :placeholder-shown{
+    width: 480px;
+    height: 35px;
+    border: none;
     border-bottom-left-radius: 5px;
+    border-top-left-radius: 5px;
+}
+.header-top .header_logo .search button{
+    height: 35px;
+    border-top-left-radius: 5px;
+    border-bottom-right-radius: 5px;
     border: none;
     padding: 10px;
     background-color: #fba100;
@@ -168,6 +186,9 @@ header-top {
     animation-delay: 10s;
 }
 .banner .image-covers .slides .slide:nth-child(4) {
+    animation-delay: 15s;
+}
+.banner .image-covers .slides .slide:nth-child(5){
     animation-delay: 15s;
 }
 @keyframes fadeSlide {
