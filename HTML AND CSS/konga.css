@@ -4,105 +4,91 @@
     box-sizing: border-box;
     font-family: Arial, Helvetica, sans-serif;
 }
-header-top {
-    height: 600px;
-    position: static;
+header{
     background-color: #f8f9fa;
+    height: 600px;
+    font-family: Arial, Helvetica, sans-serif;
 }
-.header-left {
-    height: 35px;
+.logo{
+    background-color: rgb(230, 226, 226);
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 20px;
+}
+.sub-header{
+    height: 35px;
     background-color: rgb(230, 226, 226);
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
-.header-left img {
+.sub-header img{
     height: 55%;
-    width: 0 15px;
+    margin: 0 15px;
 }
-.header-logo {
+.sub-title-header{
     height: 60px;
     background-color: rgb(237, 1, 127);
     display: flex;
     justify-content: space-evenly;
     align-items: center;
-    padding-left: 5px;
 }
-.header-logo .header-bottom-left img{
+.sub-title-header .header-bottom-left img{
     width: 50%;
-    align-items: center;
-    display: flex;
 }
-.header-logo .words {
+.sub-title-header .words {
     font-size: 14px;
     font-family: Arial, Helvetica, sans-serif;
     color: #f8f9fa;
     align-items: center;
     display: flex;
 }
-.words {
-    align-items: center;
-    justify-content: space-between;
-    font-size: 14px;
-    font-family: Arial, Helvetica, sans-serif;
-    color: #f8f9fa;
-    align-items: center;
-    gap: 20px;
-}
-.header-top .header_logo .search {
+.sub-title-header .search{
     display: flex;
-    align-items: center;
+    align-items: center; 
+    justify-content: center;   
 }
-.header-top .header-logo .search input {
+.sub-title-header .search input {
     width: 500px;
     height: 35px;
+    border-bottom-left-radius: 5px;
     border: none;
-    border-top-left-radius: 3px;
-    border-bottom-left-radius: 3px;
     padding-left: 20px;
     font-size: 14px;
 }
-.header-top .header-logo .search input :placeholder-shown{
-    width: 480px;
+.sub-title-header .search button {
     height: 35px;
-    border: none;
-    border-bottom-left-radius: 5px;
-    border-top-left-radius: 5px;
-}
-.header-top .header_logo .search button{
-    height: 35px;
-    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
     border-bottom-right-radius: 5px;
     border: none;
     padding: 10px;
     background-color: #fba100;
 }
-.header-logo .search button img {
-    width: 25px;
+.sub-title-header .search button img {
+    width: 15px;
 }
-.header_logo .header-logo2 {
+.sub-title-header .sub-title-header-right{
     display: flex;
     align-items: center;
     justify-content: center;
     color: white;
 }
-.header-logo .header-logo2 help_option {
+.sub-title-header .sub-title-header-right .help-section{
     display: flex;
     align-items: center;
     justify-content: center;
 }
-.header-logo .header-logo2 help_option img {
+.sub-title-header .sub-title-header-right .help-section img {
     width: 30px;
     height: 30px;
 }
-.header-logo .header-logo2 login_signup {
+.sub-title-header .sub-title-header-right .login_signup {
     display: flex;
     align-items: center;
     justify-content: center;
     margin-left: 20px;
 }
-.header-logo .header-logo2 .cart_text {
+.sub-title-header .sub-title-header-right .cart-section {
     display: flex;
     align-items: center;
     margin-left: 20px;
@@ -112,7 +98,7 @@ header-top {
     background-color: #33b27b;
     border-radius: 4px;
 }
-.header-logo .header-logo2 .cart {
+.sub-title-header .sub-title-header-right .cart-section .cart-count-section {
     width: 20px;
     height: 20px;
     background-color: white;
@@ -151,24 +137,25 @@ header-top {
 .header-nav .nav-list li .categories {
     font-weight: bold;
 }
-.header-top .banner {
+
+.banner {
     display: flex;
     width: 70%;
     height: 400px;
     padding-top: 20px;
     padding-bottom: 20px;
 }
-.header-top .banner .image-covers {
+.banner .image-covers {
     flex: 1;
     height: 116%;
 }
-.header-top .banner .image-covers .slides {
+.banner .image-covers .slides {
     position: relative;
     width: 100%;
     height: 100%;
     overflow: hidden;
 }
-.header-top .banner .image-covers .slides .slide {
+.banner .image-covers .slides .slide {
     position: absolute;
     width: 100%;
     height: 100%;
@@ -197,4 +184,106 @@ header-top {
     25% { opacity: 1; transform: translateX(0);}
     30% { opacity: 0; transform: translateX(-100%);}
     100% { opacity: 0; transform: translateX(-100%);}
+}
+.banner .slides-2 {
+    flex: 0.6;
+}
+.banner .slides-2 .slides-2-section {
+    position: relative;
+    width: 100%;
+    height: 57%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 0 20px;
+}
+.banner .slides-2 .slides-2-section .sub-1 {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    gap: 10px;
+}
+.banner .slides-2 .slides-2-section .sub-1 .img-slide {
+    width: 100%;
+    height: 100%;
+}
+.banner .slides-2 .slides-2-section .sub-2 {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    gap: 10px;
+}
+.banner .slides-2 .slides-2-section .sub-2 .img-slide {
+    width: 100%;
+    height: 100%;
+}
+.feature-buttons {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    padding: 10px 20px;
+    gap: 10px;
+}
+.feature-buttons button {
+    background: #fff;
+    border: 1px solid #eee;
+    padding: 12px 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+    font-size: 14px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.fa-blog {
+    font-size: 20px;
+    color: rgb(237,1,127);
+}
+.deals {
+    background-color: hsl(327, 100%, 29%);
+    color: white;
+    display: flex;
+    align-items: center;
+    padding: 10px 20px;
+    font-weight: bold;
+    gap: 30px;
+}
+.deals h2 {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+
+}
+.deals a {
+    color: white;
+    font-size: 14px;
+}
+.deals .a aa {
+    text-decoration: none;
+}
+.grid-section {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(50px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+.grid .picture-sales {
+    background: #faf6f6cf;
+    border: 1px solid #eee;
+    border-radius: 10px;
+    padding: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+.picture-sales img {
+    width: 20%;
+    height: auto;
+    height: auto;
+    border-radius: 6px;
+}
+.picture-sales h4 {
+    margin: 10px 0 5px;
+    font-size: 15px;
+    font-weight: 200;
 }
