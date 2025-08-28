@@ -4,6 +4,10 @@ const inventory = {
     orange: 8,
     mango: 12,
 };
+let totalFruits = 0;
 for(let key in inventory){
+    const quantity = inventory[key];
     console.log(`$${key}: $${inventory[key]}`);
+    totalFruits += quantity;
 }
+console.log(`Total Number of fruits: ${totalFruits}`);
